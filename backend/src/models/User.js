@@ -18,6 +18,9 @@ const User = sequelize.define("User", {
     avatar: {
         type: DataTypes.STRING
     },
+    photos:{
+        type: DataTypes.STRING
+    },
     salt: {
         type: DataTypes.STRING
     },

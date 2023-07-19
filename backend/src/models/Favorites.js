@@ -1,13 +1,12 @@
 const DataTypes = require('sequelize');
-
 const sequelize= require('../config/sequelize');
 
 
 const Favorites= sequelize.define("Favorites", {
-  playlist: {
+  likes: {
     type: DataTypes.STRING
   },
-  dearSongs: {
+  collectionPhoto: {
     type: DataTypes.STRING
   },
 });

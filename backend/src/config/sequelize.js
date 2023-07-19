@@ -1,12 +1,11 @@
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 
-
-
-
+// Leitura da pastas que contém os models
 const model = fs.readdirSync('./src/models', {withFileTypes: true})
   .map((item) => item.name.split('.')[0]);
 
+// Condição para conexão com a criação do tipo de banco de dados
 const sequelize = (process.env.DB_CONNECTION === 'sqlite')
   ? new Sequelize ({
     dialect: 'sqlite',
@@ -29,7 +28,7 @@ module.exports = sequelize;
 
 // Require Models
 require('../models/User');
-require('../models/Music');
+require('../models/Following');
 require('../models/Favorites');
 
 // Associação do Models

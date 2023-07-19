@@ -1,4 +1,4 @@
-require('../config/dotenv');
+require('../config/dotenv')();
 const sequelize = require('../config/sequelize');
 
 (async () => {

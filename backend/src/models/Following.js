@@ -3,15 +3,15 @@ const DataTypes = require('sequelize');
 const sequelize = require('../config/sequelize');
 
 
-const Music = sequelize.define("Music", {
+const Follow = sequelize.define("Follow", {
   name: {
     type: DataTypes.STRING
   },
-  gender:{
-    type: DataTypes.STRING
+  amount:{
+    type: DataTypes.INTEGER
   },
 });
 
 
 
-module.exports = Music;
+module.exports = Follow;
