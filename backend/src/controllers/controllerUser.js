@@ -15,7 +15,21 @@ async function index(res, req){
         
     }
 };
-const show = async(res, req) => {}
+
+//const show = async(res, req) => {}
+async function show(res, req){
+    const {id} = req.params;
+
+    try {
+        const user = User.findByPk(id);
+        return res.status(200).json({user});
+    } catch (error) {
+
+        return res.status(500).json({error: error});
+        
+    }
+}
+
 const create = async(res, req) => {}
 const update = async(res, req) => {}
 const destroy = async(res, req) => {}
