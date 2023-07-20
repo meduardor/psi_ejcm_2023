@@ -6,12 +6,6 @@ const User = sequelize.define("User", {
     name: {
         type: DataTypes.STRING
     },
-    cpf: {
-        type: DataTypes.STRING
-    },
-    phoneNumber: {
-        type: DataTypes.STRING
-    },
     email: {
         type: DataTypes.STRING
     },
