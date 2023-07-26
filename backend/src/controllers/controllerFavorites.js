@@ -14,6 +14,17 @@ async function index(req, res) {
     }
 }
 
+async function show(req, res){
+	const {id} = req.params;
+
+	try {
+		const favorites = await Favorites.findByPk(id);
+    return res.status(200).json({favorites});
+	} catch(error){
+    return res.status(500).json({error: error});
+  }
+}
+
 async function destroy(req, res){
     const {id} = req.params;
 
@@ -26,4 +37,10 @@ async function destroy(req, res){
         
     }
     
+}
+
+module.exports = {
+  index,
+  show,
+  destroy,
 }
