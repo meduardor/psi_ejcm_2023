@@ -11,5 +11,6 @@ const Favorites= sequelize.define("Favorites", {
   },
 });
 
+// Associations  
 
 module.exports = Favorites;
