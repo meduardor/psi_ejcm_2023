@@ -30,7 +30,11 @@ const User = sequelize.define("User", {
 });
 
 // Associations
+User.associate = function (models) {
+  User.hasMany(models.Following, {foreignKey: "userId"});
+  User.hasMany(models.Favorites);
 
+}
 
 // Export Module
 module.exports = User;
