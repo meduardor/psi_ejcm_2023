@@ -1,5 +1,5 @@
 const User = require('../models/User');
-
+const Favorites = require('../models/Favorites.js');
 
 //const index = async(res, req) => {}
 // NOTE: Qual melhor abordagem arrow function ou uma função por extenso.
@@ -88,8 +88,27 @@ async function followUser(res, req){
 async  function listFollowingUser(res, req){}
 // Função Deixar de Seguir(*DesFollowing) user
 async function unFollowUser(res, req){}
+
+/**/
+
 // Função (Favoritar Imagens)
-async function favoriteImage(res, req){}
+async function favoriteImage(res, req){
+  const {userId, favoritesId} = req.params;
+  try{
+    const imageFavorites = await Favorites.findByPk(favoriteId);
+    const userFavorites = await User.findByPk(userId);
+
+    // NOTE: 
+    await userFavorites.addFavorites(imageFavorites);
+
+    res.status(200).json({message:"Image Favorited", imageFavorites});
+
+    
+  }catch(error){
+
+    res.status(500).json({message: "error", error});
+  }
+}
 // Função list Favorites Imagens
 async function listFavoritesImage(res, req){}
 // Função (DesFavoritar Imagens)
@@ -101,5 +120,7 @@ module.exports = {
   show,
   create,
   update,
-  destroy
+  destroy,
+  followUser,
+  favoriteImage
 }
