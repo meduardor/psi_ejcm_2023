@@ -3,7 +3,7 @@ const DataTypes = require('sequelize');
 const sequelize = require('../config/sequelize');
 
 
-const Follow = sequelize.define("Follow", {
+const Following = sequelize.define("Following", {
   name: {
     type: DataTypes.STRING
   },
@@ -12,6 +12,10 @@ const Follow = sequelize.define("Follow", {
   },
 });
 
+// Associations
 
+Following.associate = function(models){
+  Following.hasMany(models.User);
+}
 
-module.exports = Follow;
+module.exports = Following;
